@@ -12,7 +12,9 @@ const connect = function () { //requirements to establish a connnection,
   conn.on("connect", () => { //this is an event , on acts as an event listener. whenever it happens it goes ahead and executes the function next to it.
     // code that does something when the connection is first established //event
     //we need a console log
+    
     console.log('Successfully Connected!')
+    conn.write('Name: SAL');
   });
 
   conn.on('data', (data) => {
