@@ -1,7 +1,7 @@
-const net = require("net"); //we are using net from net library 
+const net = require("net", "./constants"); //we are using net from net library
 
 // establishes a connection with the game server
-const connect = function () { //requirements to establish a connnection, 
+const connect = function() { //requirements to establish a connnection,
   const conn = net.createConnection({ //establishes connection
     host: '165.227.47.243', //objects
     port: 50541,
@@ -13,17 +13,18 @@ const connect = function () { //requirements to establish a connnection,
     // code that does something when the connection is first established //event
     //we need a console log
     
-    console.log('Successfully Connected!')
+    console.log('Successfully Connected!');
     conn.write('Name: SAL');
+    // conn.write('Move: up')
   });
 
   conn.on('data', (data) => {
-        console.log(data.toString());
-        conn.end();
-      });
-    //   conn.on('end', () => {
-    //     console.log('you ded cuz you idled');
-    //   });
+    console.log(data.toString());
+    conn.end();
+  });
+  //   conn.on('end', () => {
+  //     console.log('you ded cuz you idled');
+  //   });
 
 
   return conn;
@@ -31,3 +32,6 @@ const connect = function () { //requirements to establish a connnection,
 
 console.log("Connecting ...");
 exports.connect = connect; //exporting the connect function and everything inside
+
+
+
